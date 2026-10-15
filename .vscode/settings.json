@@ -1,0 +1,9 @@
+{
+  "terminal.integrated.profiles.linux": {
+    "RWFit Terminal Logger": {
+      "path": "${workspaceFolder}/scripts/terminal-log.sh",
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "RWFit Terminal Logger"
+}

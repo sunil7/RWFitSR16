@@ -1,0 +1,674 @@
+]633;E;echo "=== SERVICE DISCOVERY (r5/b.java 650-770) ===";988a1917-26ed-4478-93a9-d578f583b1f1]633;C=== SERVICE DISCOVERY (r5/b.java 650-770) ===
+            }
+            if (!y5.d.f20005b) {
+                bluetoothGatt.requestMtu(239);
+            } else if (y5.d.f20006c) {
+                bluetoothGatt.requestMtu(185);
+            } else {
+                bluetoothGatt.requestMtu(509);
+            }
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "onDescriptorWrite requestMtu 清除DEVICE_SERVICE_NOTIFY_CONNECT超时");
+            if (this.r) {
+                return;
+            }
+            e eVar = this.f18055d;
+            eVar.removeCallbacksAndMessages(null);
+            eVar.sendEmptyMessageDelayed(2, 2000L);
+        }
+    }
+
+    @Override // android.bluetooth.BluetoothGattCallback
+    public final void onMtuChanged(BluetoothGatt bluetoothGatt, int i3, int i10) {
+        super.onMtuChanged(bluetoothGatt, i3, i10);
+        StringBuilder s7 = l0.s(i3, "onMtuChanged ", i10, " status ", " isRelease ");
+        s7.append(this.r);
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", s7.toString());
+        if (y5.d.f20005b) {
+            this.f18063m = i3 - 3;
+        }
+    }
+
+    @Override // android.bluetooth.BluetoothGattCallback
+    public final void onReadRemoteRssi(BluetoothGatt bluetoothGatt, int i3, int i10) {
+        super.onReadRemoteRssi(bluetoothGatt, i3, i10);
+        a.h(i3, "onReadRemoteRssi rssi ", "qob");
+        Iterator it = this.f18052a.iterator();
+        while (it.hasNext()) {
+            WeakReference weakReference = (WeakReference) it.next();
+            if (weakReference != null && weakReference.get() != null) {
+                ((u5.d) weakReference.get()).getClass();
+            }
+        }
+    }
+
+    @Override // android.bluetooth.BluetoothGattCallback
+    public final void onServicesDiscovered(BluetoothGatt bluetoothGatt, int i3) {
+        if (!this.f18062l) {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "蓝牙发现服务，状态异常");
+            return;
+        }
+        this.f18069t = false;
+        this.f18070u = 0;
+        this.f18071v = 1;
+        this.f18066p = null;
+        this.f18067q = null;
+        y5.d.f20007d = false;
+        if (i3 != 0) {
+            p();
+            o();
+            return;
+        }
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "蓝牙服务发现");
+        y5.d.f20005b = false;
+        y5.d.f20006c = false;
+        if (bluetoothGatt.getService(y5.a.e) != null) {
+            y5.d.f20005b = true;
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "获取杰里蓝牙服务 " + y5.d.f20005b);
+        } else {
+            y5.d.f20005b = false;
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "获取瑞昱蓝牙服务");
+        }
+        BluetoothGattService service = bluetoothGatt.getService(y5.a.f19999h);
+        if (service != null) {
+            y5.d.f20005b = true;
+            y5.d.f20006c = true;
+            y5.d.f20007d = true;
+            this.f18067q = service.getCharacteristic(y5.a.f20000i);
+            this.f18071v = 2;
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "获取Telink OTA蓝牙服务");
+        } else {
+            BluetoothGattService service2 = bluetoothGatt.getService(y5.a.f19997f);
+            if (service2 != null) {
+                y5.d.f20005b = true;
+                y5.d.f20006c = true;
+                this.f18066p = service2.getCharacteristic(y5.a.f19998g);
+                this.f18071v = 2;
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "获取智能戒指pxi OTA蓝牙服务");
+            }
+        }
+        BluetoothGattService service3 = bluetoothGatt.getService(y5.a.f19993a);
+        if (service3 != null) {
+            this.f18065o = service3.getCharacteristic(y5.a.f19994b);
+        } else {
+            this.f18069t = true;
+            if (!this.r) {
+                this.f18055d.sendEmptyMessageDelayed(10, 2000L);
+            }
+        }
+        if (service3 != null) {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "通知使能监听：" + i(service3.getCharacteristic(y5.a.f19995c)) + " enableNotificationsCount " + this.f18071v);
+        }
+    }
+
+    public final void p() {
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "refreshDeviceCache");
+        if (this.f18059i != null) {
+            try {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "bluetoothGatt--refreshDeviceCache");
+                BluetoothGatt bluetoothGatt = this.f18059i;
+                ((Boolean) bluetoothGatt.getClass().getMethod("refresh", null).invoke(bluetoothGatt, null)).getClass();
+            } catch (Exception e) {
+                e.printStackTrace();
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "ConnectBleService", "An exception occured while refreshing device");
+            }
+        }
+    }
+
+    public final void q(u5.d dVar) {
+        if (m(dVar)) {
+            return;
+        }
+        Log.e("qob", "registerScanBleCallback " + dVar.getClass());
+        this.f18052a.add(new WeakReference(dVar));
+=== STANDARD PROTOCOL HANDLER (x5/d.java) ===
+package x5;
+
+import android.os.Message;
+import android.util.Log;
+import androidx.camera.core.impl.c1;
+import com.example.blesdk.bean.BleSendBean;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+/* loaded from: classes.dex */
+public final class d implements o5.a, u5.d {
+
+    /* renamed from: g, reason: collision with root package name */
+    public static d f19805g;
+
+    /* renamed from: a, reason: collision with root package name */
+    public int f19806a = 0;
+    public int e = 1;
+
+    /* renamed from: b, reason: collision with root package name */
+    public final com.example.baselibrary.utils.e f19807b = new com.example.baselibrary.utils.e(this);
+
+    /* renamed from: c, reason: collision with root package name */
+    public final HashMap f19808c = new HashMap(1);
+
+    /* renamed from: d, reason: collision with root package name */
+    public final LinkedList f19809d = new LinkedList();
+
+    /* renamed from: f, reason: collision with root package name */
+    public final ArrayList f19810f = new ArrayList();
+
+    public d() {
+        r5.b.k().q(this);
+    }
+
+    public static d c() {
+        if (f19805g == null) {
+            synchronized (d.class) {
+                f19805g = new d();
+            }
+        }
+        return f19805g;
+    }
+
+    public static boolean d(byte b3) {
+        return b3 == -124 || b3 == Byte.MIN_VALUE || b3 == -126 || b3 == -122 || b3 == -123;
+    }
+
+    public static boolean e(byte b3) {
+        return (b3 == -124 || b3 == Byte.MIN_VALUE || b3 == -126 || b3 == -122 || b3 == -123) ? false : true;
+    }
+
+    @Override // u5.d
+    public final void I(s5.a aVar, int i3) {
+    }
+
+    public final void a(byte b3, byte[] bArr) {
+        if (e(b3)) {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "加入等待指令--> ", y5.b.h(bArr));
+        } else {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "加入等待指令--> ", "文件传输");
+        }
+        BleSendBean bleSendBean = new BleSendBean();
+        bleSendBean.sendMsgId = b3;
+        bleSendBean.willSendData = bArr;
+        if (b3 == -1) {
+            bleSendBean.receivedFECmd = 255;
+        }
+        this.f19809d.add(bleSendBean);
+        y5.b.h(bArr);
+        Iterator it = this.f19810f.iterator();
+        if (it.hasNext()) {
+            throw android.support.v4.media.session.e.d(it);
+        }
+        int i3 = this.e;
+        if (i3 >= 65535) {
+            this.e = 1;
+        } else {
+            this.e = i3 + 1;
+        }
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "sendCmdSerialNumber " + this.e);
+        f();
+    }
+
+    public final void b(byte b3, int i3, byte b10) {
+        if (d(b3)) {
+            return;
+        }
+        byte[] a3 = y5.b.a(i3, 2);
+        j((byte) -1, new byte[]{a3[0], a3[1], b3, b10});
+    }
+
+    @Override // u5.d
+    public final void e0(s5.a aVar) {
+    }
+
+    public final void f() {
+        try {
+            if (this.f19809d.size() > 0) {
+                if (this.f19809d.get(0) == null) {
+                    this.f19809d.remove(0);
+                    f();
+                    return;
+                }
+                BleSendBean bleSendBean = (BleSendBean) this.f19809d.get(0);
+                byte[] bArr = bleSendBean.willSendData;
+                if (bArr == null) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "指令异常为空，移除指令");
+                    this.f19809d.remove(0);
+                    f();
+                    return;
+                }
+                if (!r5.b.k().f18054c) {
+                    b.I0().F0(bArr[2]);
+                    return;
+                }
+                if (bleSendBean.gattWriteFinish == 1) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "队列顶部指令 还Write未完成需等待 " + ((int) bleSendBean.sendMsgId));
+                    return;
+                }
+                if (bleSendBean.receivedFECmd == 0 && bleSendBean.gattWriteFinish == 2) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "队列顶部指令 0xFE未完成需等待");
+                    return;
+                }
+                y5.b.h(bArr);
+                Iterator it = this.f19810f.iterator();
+                if (it.hasNext()) {
+                    it.next().getClass();
+                    throw new ClassCastException();
+                }
+                if (bArr.length < 3 || !e(bArr[2])) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "发送指令--> ", "文件传输 len: " + bArr.length);
+                } else {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "发送指令--> ", y5.b.h(bArr));
+                }
+                bleSendBean.gattWriteFinish = 1;
+                boolean s7 = r5.b.k().s(bArr);
+                if (s7 && bArr.length >= 3 && d(bArr[2])) {
+                    return;
+                }
+                if (bArr[2] == -1) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "应答指令不等超时，等write完成释放发送通道");
+                } else {
+                    if (s7) {
+                        return;
+                    }
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "发送指令失败重发");
+                }
+            }
+        } catch (Throwable th2) {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", android.support.v4.media.session.e.p(th2, new StringBuilder("NEXT CMD ERROR ")));
+            this.f19807b.postDelayed(new m5.a(this, 18), r5.b.k().f18064n);
+        }
+    }
+
+    public final void g() {
+        StringBuilder sb2 = new StringBuilder("popQueue 移除发送等待队列 ");
+        LinkedList linkedList = this.f19809d;
+        sb2.append(linkedList.size());
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", sb2.toString());
+        linkedList.remove(0);
+        this.f19806a = 0;
+        f();
+    }
+
+    public final synchronized void h(byte[] bArr) {
+        try {
+            y5.b.h(bArr);
+            Iterator it = this.f19810f.iterator();
+            if (it.hasNext()) {
+                it.next().getClass();
+                throw new ClassCastException();
+            }
+            if (bArr[0] == 126) {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "接收到指令 --> ", y5.b.h(bArr));
+                int i3 = bArr[1] & 255;
+                int i10 = bArr[2] & 255;
+                byte b3 = bArr[3];
+                int i11 = (b3 >> 3) & 1;
+                int i12 = bArr[4] & 255;
+                int j4 = y5.b.j(new byte[]{bArr[5], bArr[6]});
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "接收到指令解析 --> ", "version = " + i3 + " ，msgId = " + i10 + " ，isPackage = " + i11 + " ，isEncryption = " + ((b3 | (b3 >> 2) | (b3 >> 1)) & 1) + " ，dataLen = " + i12 + " ，msgSerialNumber = " + j4);
+                if (i11 != 1 || bArr.length <= 9) {
+                    byte[] bArr2 = new byte[i12];
+                    System.arraycopy(bArr, 8, bArr2, 0, i12);
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "接收到指令分包解析 --> ", "content byte = " + y5.b.h(bArr2));
+                    if (i12 > 0) {
+                        if (bArr[7] != y5.b.o(bArr2)) {
+                            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "包内容解析 --> 包校验失败，给设备回馈失败");
+                            b(bArr[2], j4, (byte) 2);
+                            return;
+                        }
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "包内容解析 --> 包校验通过");
+                    }
+                    i(bArr[2], bArr2);
+                    byte b10 = bArr[2];
+                    if (b10 != -2) {
+                        b(b10, j4, (byte) 0);
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "非0xFE应答数据解析");
+                        b.I0().a(bArr[2], bArr2, j4);
+                    } else {
+                        LinkedList linkedList = this.f19809d;
+                        if (linkedList.size() > 0) {
+                            byte[] bArr3 = ((BleSendBean) linkedList.get(0)).willSendData;
+                            int d5 = y5.b.d(5, 6, bArr3);
+                            int d8 = y5.b.d(0, 1, bArr2);
+                            if (((bArr3[3] >> 3) & 1) == 1 && bArr3[2] == bArr2[2] && d5 > d8) {
+                                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "当前回复是分包回复，不解析等待最后一包回复");
+                            }
+                        }
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "isPartCmd 应答解析");
+                        b.I0().a(bArr[2], bArr2, j4);
+                    }
+                } else {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "进行多包处理");
+                    int j10 = y5.b.j(new byte[]{bArr[8], bArr[9]});
+                    int j11 = y5.b.j(new byte[]{bArr[10], bArr[11]});
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "接收到指令分包解析 --> ", "msgTotalCount = " + j10 + " msgCurrentCount = " + j11);
+                    byte[] bArr4 = new byte[i12];
+                    System.arraycopy(bArr, 12, bArr4, 0, i12);
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "包内容解析 --> " + y5.b.h(bArr4));
+                    if (i12 > 0) {
+                        if (bArr[7] != y5.b.o(bArr4)) {
+                            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "包内容解析 --> 包校验失败，给设备回馈失败");
+                            b(bArr[2], j4, (byte) 2);
+                            return;
+                        }
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "包内容解析 --> 包校验通过");
+                    }
+                    i(bArr[2], bArr4);
+                    byte b11 = bArr[2];
+                    if (b11 != -2) {
+                        b(b11, j4, (byte) 0);
+                    }
+                    List<e> list = (List) this.f19808c.get(Integer.valueOf(i10));
+                    if (list == null) {
+                        list = new ArrayList(1);
+                    }
+                    e eVar = new e();
+                    eVar.f19811a = j11;
+                    eVar.f19812b = bArr4;
+                    list.add(eVar);
+                    this.f19808c.put(Integer.valueOf(i10), list);
+                    if (j11 == j10 && list.size() == j10) {
+                        Iterator it2 = list.iterator();
+                        int i13 = 0;
+                        while (it2.hasNext()) {
+                            i13 += ((e) it2.next()).f19812b.length;
+                        }
+                        Collections.sort(list, new c1(7));
+                        byte[] bArr5 = new byte[i13];
+                        int i14 = 0;
+                        for (e eVar2 : list) {
+                            byte[] bArr6 = eVar2.f19812b;
+                            System.arraycopy(bArr6, 0, bArr5, i14, bArr6.length);
+                            i14 += eVar2.f19812b.length;
+                        }
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "分包接收完毕合包解析 --> ", "content = " + y5.b.h(bArr5));
+                        b.I0().a(bArr[2], bArr5, j4);
+                        this.f19808c.remove(Integer.valueOf(i10));
+                    }
+                }
+            } else {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "接收到其他指令，不处理 --> ", y5.b.h(bArr));
+            }
+        } catch (Throwable th2) {
+            throw th2;
+        }
+    }
+
+    @Override // u5.d
+    public final void h0(s5.a aVar) {
+    }
+
+    public final void i(byte b3, byte[] bArr) {
+        if (b3 == -2) {
+            byte b10 = bArr[2];
+            int d5 = y5.b.d(0, 1, bArr);
+            BleSendBean bleSendBean = (BleSendBean) this.f19809d.get(0);
+            StringBuilder q5 = android.support.v4.media.session.e.q(b10, "removeCmdCache cmdId = ", " sendMsgId ");
+            q5.append((int) bleSendBean.sendMsgId);
+            q5.append("  gattWriteFinish ");
+            q5.append(bleSendBean.gattWriteFinish);
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", q5.toString());
+            LinkedList linkedList = this.f19809d;
+            if (linkedList.size() > 0) {
+                byte[] bArr2 = ((BleSendBean) linkedList.get(0)).willSendData;
+                int d8 = y5.b.d(5, 6, bArr2);
+                if (bArr2[2] == b10 && d8 == d5) {
+                    bleSendBean.receivedFECmd = 1;
+                    if (bleSendBean.gattWriteFinish == 2) {
+                        g();
+                        return;
+                    }
+                    return;
+                }
+            }
+            if (!e(b10)) {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "队列当前正在等待回复指令不匹配，继续等待 文件传输当前缓存数量 " + this.f19809d.size());
+                return;
+            }
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "队列当前正在等待回复指令不匹配，继续等待 dataBody = " + y5.b.h(bArr) + "当前缓存数量 " + this.f19809d.size());
+        }
+    }
+
+    public final synchronized void j(byte b3, byte[] bArr) {
+        int i3;
+        char c9 = 1;
+        synchronized (this) {
+            if (!r5.b.k().f18054c) {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "设备未连接");
+                b.I0().F0(b3);
+                return;
+            }
+            int i10 = 0;
+            if (bArr.length > 0) {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "指令长度 --> ", Integer.valueOf(bArr.length));
+                if (e(b3)) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "指令消息体 --> ", y5.b.h(bArr));
+                } else {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "指令消息体 --> ", "文件传输");
+                }
+                i3 = (bArr.length / r5.b.k().j()) + (bArr.length % r5.b.k().j() > 0 ? 1 : 0);
+            } else {
+                com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "无参指令");
+                i3 = 1;
+            }
+            int i11 = i3 == 1 ? 8 : 12;
+            byte[] bArr2 = new byte[i11];
+            bArr2[0] = 126;
+            bArr2[1] = 1;
+            int i12 = 2;
+            bArr2[2] = b3;
+            int i13 = i3 > 1 ? 8 : 0;
+            char[] cArr = y5.b.f20001a;
+            bArr2[3] = (byte) (i13 & 255);
+            if (i3 == 1) {
+                bArr2[4] = (byte) (bArr.length & 255);
+                byte[] a3 = y5.b.a(this.e, 2);
+                bArr2[5] = a3[0];
+                bArr2[6] = a3[1];
+                if (bArr.length > 0) {
+                    bArr2[7] = y5.b.o(bArr);
+                }
+                byte[] bArr3 = new byte[bArr.length + 8];
+                System.arraycopy(bArr2, 0, bArr3, 0, i11);
+                System.arraycopy(bArr, 0, bArr3, i11, bArr.length);
+                if (e(b3)) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "收到待发送单包指令--> ", y5.b.h(bArr3));
+                } else {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "收到待发送单包指令--> ", "文件传输");
+                }
+                a(b3, bArr3);
+            } else {
+                byte[] a10 = y5.b.a(i3, 2);
+                bArr2[8] = a10[0];
+                bArr2[9] = a10[1];
+                int i14 = 0;
+                int i15 = 0;
+                while (i14 < i3) {
+                    byte[] a11 = y5.b.a(this.e, i12);
+                    bArr2[5] = a11[i10];
+                    bArr2[6] = a11[c9];
+                    char c10 = c9;
+                    byte[] bArr4 = r5.b.k().j() > bArr.length - i15 ? new byte[bArr.length - i15] : new byte[r5.b.k().j()];
+                    System.arraycopy(bArr, i15, bArr4, i10, bArr4.length);
+                    i15 += bArr4.length;
+                    bArr2[4] = (byte) (bArr4.length & 255);
+                    bArr2[7] = y5.b.o(bArr4);
+                    i14++;
+                    byte[] a12 = y5.b.a(i14, i12);
+                    bArr2[10] = a12[i10];
+                    bArr2[11] = a12[c10];
+                    byte[] bArr5 = new byte[bArr4.length + i11];
+                    System.arraycopy(bArr2, i10, bArr5, i10, i11);
+                    System.arraycopy(bArr4, i10, bArr5, i11, bArr4.length);
+                    if (e(b3)) {
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "分包指令--> ", y5.b.h(bArr5));
+                    } else {
+                        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "分包指令--> ", "文件传输");
+                    }
+                    a(b3, bArr5);
+                    c9 = c10;
+                    i10 = 0;
+                    i12 = 2;
+                }
+            }
+        }
+    }
+
+    @Override // u5.d
+    public final void m0(s5.a aVar) {
+    }
+
+    @Override // u5.d
+    public final void o() {
+    }
+
+    @Override // o5.a
+    public final void r0(Message message) {
+        int i3 = this.f19806a;
+        if (i3 < 2) {
+            this.f19806a = i3 + 1;
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", r5.a.e(new StringBuilder("命令发送第"), this.f19806a, "次超时，重发"));
+            if (this.f19809d.size() > 0 && this.f19809d.get(0) != null) {
+                BleSendBean bleSendBean = (BleSendBean) this.f19809d.get(0);
+                byte[] bArr = bleSendBean.willSendData;
+                if (bArr == null || bArr.length < 3 || !e(bArr[2])) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "重发当前指令 文件传输");
+                } else {
+                    bleSendBean.gattWriteFinish = 0;
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "重发当前指令 " + y5.b.h(bleSendBean.willSendData));
+                }
+            }
+        } else {
+            this.f19806a = 0;
+            b.I0().E0(message.what);
+            if (this.f19809d.size() > 0) {
+                BleSendBean bleSendBean2 = (BleSendBean) this.f19809d.remove(0);
+                byte[] bArr2 = bleSendBean2.willSendData;
+                if (bArr2 == null || bArr2.length < 3 || !e(bArr2[2])) {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "发送三次超时移除等待当前指令 --> 文件传输");
+                } else {
+                    com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "CmdHandlerUtils", "发送三次超时移除等待当前指令 --> " + y5.b.h(bleSendBean2.willSendData));
+                }
+            }
+        }
+        f();
+    }
+
+    @Override // u5.d
+    public final void v(s5.a aVar) {
+        StringBuilder sb2 = new StringBuilder("onDisConnect ");
+        LinkedList linkedList = this.f19809d;
+        sb2.append(linkedList.size());
+        Log.e("qob", sb2.toString());
+        b I0 = b.I0();
+        I0.f19797c = -1;
+        I0.f19798d = -1;
+        if (linkedList.size() > 0) {
+            Iterator it = linkedList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                byte[] bArr = ((BleSendBean) it.next()).willSendData;
+                if (d(bArr[2])) {
+                    r5.c.h().n(true, new byte[]{7, 2, bArr[2]});
+                    break;
+                }
+                b.I0().F0(bArr[2]);
+            }
+            linkedList.clear();
+        } else if (r5.c.h().f18084k > 1) {
+            r5.c.h().n(true, new byte[]{7, 2, 0});
+        }
+        this.f19808c.clear();
+        this.f19806a = 0;
+    }
+}
+=== COMMAND BUILDERS (com/example/blesdk/service/c.java) ===
+package com.example.blesdk.service;
+
+import com.example.test.service.s1;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+/* loaded from: classes.dex */
+public final class c implements v5.w {
+
+    /* renamed from: a, reason: collision with root package name */
+    public final /* synthetic */ l f7302a;
+
+    public c(l lVar) {
+        this.f7302a = lVar;
+    }
+
+    @Override // u5.g
+    public final void a(int i3) {
+        u5.c cVar;
+        l lVar = this.f7302a;
+        lVar.getClass();
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "SyncDataService", "血氧同步失败[" + i3 + ']');
+        x5.b I0 = x5.b.I0();
+        if (I0.J0(this)) {
+            LinkedList linkedList = I0.f19795a;
+            Iterator it = linkedList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    cVar = null;
+                    break;
+                }
+                cVar = (u5.c) it.next();
+                if (cVar != null && cVar.g() == this) {
+                    break;
+                }
+            }
+            if (cVar != null) {
+                linkedList.remove(cVar);
+            }
+        }
+        lVar.f7312a = 60;
+        l.a(lVar, 4);
+        lVar.g();
+    }
+
+    @Override // u5.g
+    public final void c() {
+    }
+
+    @Override // u5.g
+    public final void e(Object obj) {
+        u5.c cVar;
+        List list = (List) obj;
+        l lVar = this.f7302a;
+        lVar.getClass();
+        com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "SyncDataService", "血氧同步成功");
+        lVar.f7312a = 60;
+        if (list != null) {
+            com.example.baselibrary.utils.b.o(com.example.baselibrary.utils.b.f7266d, "SyncDataService", "血氧数据[" + com.example.baselibrary.utils.b.z(list) + ']');
+            Iterator it = lVar.b().iterator();
+            while (it.hasNext()) {
+                ((s1) ((u5.h) it.next())).b(list);
+            }
+        }
+        x5.b I0 = x5.b.I0();
+        if (I0.J0(this)) {
+            LinkedList linkedList = I0.f19795a;
+            Iterator it2 = linkedList.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    cVar = null;
+                    break;
+                }
+                cVar = (u5.c) it2.next();
+                if (cVar != null && cVar.g() == this) {
+                    break;
+                }
+            }
+            if (cVar != null) {
+                linkedList.remove(cVar);
+            }
+        }
+        lVar.g();
+    }
+}
