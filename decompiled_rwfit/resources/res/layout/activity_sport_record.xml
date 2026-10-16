@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_text="@string/str_sport_record"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sportList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:paddingStart="@dimen/qb_px_10"
+        android:paddingEnd="@dimen/qb_px_10"/>
+    <RelativeLayout
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/ll_health_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp">
+        <ImageView
+            android:id="@+id/iv_health_nodata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/sport_run_nodata"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:textColor="?attr/colorOnPrimary"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_no_data"
+            android:layout_below="@+id/iv_health_nodata"
+            android:layout_alignStart="@+id/iv_health_nodata"
+            android:layout_alignEnd="@+id/iv_health_nodata"/>
+    </RelativeLayout>
+</LinearLayout>

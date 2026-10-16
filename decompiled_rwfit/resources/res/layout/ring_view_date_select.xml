@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/last"
+        android:padding="@dimen/qb_px_10"
+        android:visibility="invisible"
+        android:layout_width="@dimen/qb_px_40"
+        android:layout_height="@dimen/qb_px_40"
+        android:src="@mipmap/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dateTv"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/qb_px_14"
+        android:textColor="?attr/colorOnPrimary"
+        android:id="@+id/dateTv"
+        android:paddingTop="@dimen/qb_px_10"
+        android:paddingBottom="@dimen/qb_px_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2022/05/25"
+        android:paddingStart="@dimen/qb_px_14"
+        android:paddingEnd="@dimen/qb_px_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/next"
+        android:padding="@dimen/qb_px_10"
+        android:visibility="invisible"
+        android:layout_width="@dimen/qb_px_40"
+        android:layout_height="@dimen/qb_px_40"
+        android:src="@mipmap/ic_back"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/dateTv"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

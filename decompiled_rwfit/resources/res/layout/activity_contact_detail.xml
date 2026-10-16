@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_right="@mipmap/ic_save"
+        app:title_text="@string/str_edit"/>
+    <com.example.test.ui.view.InputView
+        android:id="@+id/nameIv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:input_hint="@string/str_contact_person"/>
+    <com.example.test.ui.view.InputView
+        android:id="@+id/numberIv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:input_hint="@string/str_contact"/>
+</LinearLayout>

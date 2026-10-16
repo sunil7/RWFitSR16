@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/svg_ic_menu_qcoder"
+            android:id="@+id/nav_qcoder"
+            android:title="@string/str_qrcode"/>
+        <item
+            android:icon="@drawable/svg_ic_menu_personal"
+            android:id="@+id/nav_persional"
+            android:title="@string/str_personal_data"/>
+        <item
+            android:icon="@drawable/svg_ic_menu_settings"
+            android:id="@+id/nav_settings"
+            android:title="@string/str_setting"/>
+        <item
+            android:icon="@drawable/svg_ic_menu_about"
+            android:id="@+id/nav_about"
+            android:title="@string/str_about"/>
+    </group>
+</menu>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_right="@mipmap/ic_save"
+        app:title_text="@string/str_sport_setting"/>
+    <androidx.core.widget.NestedScrollView
+        android:padding="@dimen/qb_px_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="false">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avVibratorSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:is_show_icon="false"
+                app:item_name="@string/str_vibration_settings"
+                app:item_type="action_switch"/>
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avScreenLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                app:is_show_icon="false"
+                app:item_name="@string/str_screen_always_on"
+                app:item_type="action_switch"/>
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avAutoPause"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                app:is_show_icon="false"
+                app:item_name="@string/str_auto_pause"
+                app:item_type="action_switch"/>
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avTimeTarget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                app:is_show_icon="false"
+                app:item_hint="30 min"
+                app:item_name="@string/str_time_goal"
+                app:item_type="action_info"/>
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avCalTarget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                app:is_show_icon="false"
+                app:item_hint="100 kcal"
+                app:item_name="@string/str_calorie_goal"
+                app:item_type="action_info"/>
+            <com.example.test.ui.view.ActionItemView
+                android:id="@+id/avDistanceTarget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                app:is_show_icon="false"
+                app:item_hint="5 km"
+                app:item_name="@string/str_distance_goal"
+                app:item_type="action_info"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

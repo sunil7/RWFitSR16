@@ -1,0 +1,196 @@
+[{
+  "appName": "sms",
+  "appId": 1,
+  "appPackages": ".mms&com.google.android.apps.messaging&com.samsung.android.messaging&com.sonyericsson.conversations&com.android.mms"
+  },
+  {
+    "appName": "QQ",
+    "appId": 2,
+    "appPackages": ".mqq&.mobileqq"
+  },
+  {
+    "appName": "weChat",
+    "appId": 3,
+    "appPackages": "com.tencent.mm"
+  },
+  {
+    "appName": "whatsApp",
+    "appId": 4,
+    "appPackages": "com.whatsapp"
+  },
+  {
+    "appName": "Messenger",
+    "appId": 5,
+    "appPackages": "com.facebook.orca"
+  },
+  {
+    "appName": "twitter",
+    "appId": 6,
+    "appPackages": "com.twitter.android"
+  },
+  {
+    "appName": "linkedin",
+    "appId": 7,
+    "appPackages": "com.linkedin.android"
+  },
+  {
+    "appName": "instagram",
+    "appId": 8,
+    "appPackages": "com.instagram.android"
+  },
+  {
+    "appName": "fackbook",
+    "appId": 9,
+    "appPackages": "com.facebook.katana"
+  },
+  {
+    "appName": "line",
+    "appId": 10,
+    "appPackages": "jp.naver.line.android"
+  },
+  {
+    "appName": "wework",
+    "appId": 11,
+    "appPackages": "com.tencent.wework"
+  },
+  {
+    "appName": "dingding",
+    "appId": 12,
+    "appPackages": "com.alibaba.android.rimet"
+  },
+  {
+    "appName": "email",
+    "appId": 13,
+    "appPackages": "mail"
+  },
+  {
+    "appName": "calendar",
+    "appId": 14,
+    "appPackages": ".calendar"
+  },
+  {
+    "appName": "viber",
+    "appId": 15,
+    "appPackages": "com.viber.voip"
+  },
+  {
+    "appName": "skype",
+    "appId": 16,
+    "appPackages": "com.skype"
+  },
+  {
+    "appName": "kakaotalk",
+    "appId": 17,
+    "appPackages": "com.kakao.talk"
+  },
+  {
+    "appName": "tumblr",
+    "appId": 18,
+    "appPackages": "com.tumblr"
+  },
+  {
+    "appName": "snapchat",
+    "appId": 19,
+    "appPackages": "com.snapchat.android"
+  },
+  {
+    "appName": "youtube",
+    "appId": 20,
+    "appPackages": "com.google.android.youtube"
+  },
+  {
+    "appName": "pinterest",
+    "appId": 21,
+    "appPackages": "com.pinterest"
+  },
+  {
+    "appName": "tiktok",
+    "appId": 22,
+    "appPackages": "com.zhiliaoapp.musically"
+  },
+  {
+    "appName": "gmail",
+    "appId": 23,
+    "appPackages": "com.google.android.gm"
+  },
+  {
+    "appName": "weibo",
+    "appId": 27,
+    "appPackages": "com.sina.weibo"
+  },
+  {
+    "appName": "band",
+    "appId": 28,
+    "appPackages": "com.nhncorp.m2app"
+  },
+  {
+    "appName": "telegram",
+    "appId": 29,
+    "appPackages": "ph.telegra.Telegraph"
+  },
+  {
+    "appName": "between",
+    "appId": 30,
+    "appPackages": "kr.co.vcnc.couple"
+  },
+  {
+    "appName": "navercafe",
+    "appId": 31,
+    "appPackages": "com.nhncorp.navercafe"
+  },
+  {
+    "appName": "netflix",
+    "appId": 32,
+    "appPackages": "com.netflix.Netflix"
+  },
+  {
+    "appName": "call",
+    "appId": 33,
+    "appPackages": "com.android.mobilephone"
+  },
+  {
+    "appName": "MAX",
+    "appId": 34,
+    "appPackages": "com.oneme.app"
+  },
+  {
+    "appName": "VK Мессенджер",
+    "appId": 35,
+    "appPackages": "com.vk.im"
+  },
+  {
+    "appName": "Mail.ru",
+    "appId": 36,
+    "appPackages": "ru.mail.mailapp"
+  },
+  {
+    "appName": "Yandex Mail",
+    "appId": 37,
+    "appPackages": "ru.yandex.mail"
+  },
+  {
+    "appName": "Yandex Go",
+    "appId": 38,
+    "appPackages": "ru.yandex.taxi"
+  },
+  {
+    "appName": "ВКонтакте",
+    "appId": 39,
+    "appPackages": "com.vkontakte.android"
+  },
+  {
+    "appName": "Wildberries",
+    "appId": 40,
+    "appPackages": "com.wildberries.ru"
+  },
+  {
+    "appName": "0Z0N",
+    "appId": 41,
+    "appPackages": "ru.ozon.app.android"
+  },
+  {
+    "appName": "MAKC",
+    "appId": 42,
+    "appPackages": "ru.oneme.app"
+  }
+]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_right="@mipmap/ic_refresh"
+        app:title_text="@string/str_device_scan"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/deviceList"
+        android:paddingBottom="@dimen/qb_px_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/qb_px_10"
+        android:paddingEnd="@dimen/qb_px_10"/>
+</LinearLayout>

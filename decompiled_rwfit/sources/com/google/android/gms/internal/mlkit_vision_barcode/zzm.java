@@ -1,0 +1,44 @@
+package com.google.android.gms.internal.mlkit_vision_barcode;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+
+/* loaded from: classes.dex */
+public final class zzm extends AbstractSafeParcelable {
+    public static final Parcelable.Creator<zzm> CREATOR = new b(29);
+    public String zza;
+    public String zzb;
+    public String zzc;
+    public String zzd;
+    public String zze;
+    public String zzf;
+    public String zzg;
+    public String zzh;
+    public String zzi;
+    public String zzj;
+    public String zzk;
+    public String zzl;
+    public String zzm;
+    public String zzn;
+
+    @Override // android.os.Parcelable
+    public final void writeToParcel(Parcel parcel, int i3) {
+        int i10 = com.google.android.gms.internal.mlkit_vision_common.u.i(parcel, 20293);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 2, this.zza);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 3, this.zzb);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 4, this.zzc);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 5, this.zzd);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 6, this.zze);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 7, this.zzf);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 8, this.zzg);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 9, this.zzh);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 10, this.zzi);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 11, this.zzj);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 12, this.zzk);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 13, this.zzl);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 14, this.zzm);
+        com.google.android.gms.internal.mlkit_vision_common.u.e(parcel, 15, this.zzn);
+        com.google.android.gms.internal.mlkit_vision_common.u.j(parcel, i10);
+    }
+}

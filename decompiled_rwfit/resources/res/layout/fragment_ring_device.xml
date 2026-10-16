@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/ring_16702E"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.ToolBarView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_option1="@mipmap/ic_scan"
+        app:bar_option2="@mipmap/ic_scan_device"
+        app:bar_status_res="@mipmap/ic_device_disconnected"
+        app:bar_title="@string/str_disconnected"/>
+    <com.example.test.ui.view.DeviceRingInfoView
+        android:id="@+id/device_info_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_below="@+id/toolbar"/>
+    <RelativeLayout
+        android:id="@+id/rl_ring_item_bright"
+        android:background="@mipmap/ring_device_item_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-70dp"
+        android:layout_alignBottom="@+id/device_info_view"/>
+    <RelativeLayout
+        android:id="@+id/rl_ring_item_heartcheck"
+        android:background="@mipmap/ring_device_item_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_ring_item_bright"/>
+    <RelativeLayout
+        android:id="@+id/rl_ring_item_3"
+        android:background="@mipmap/ring_device_item_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_ring_item_heartcheck"/>
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/dialView"
+        android:layout_width="@dimen/qb_px_80"
+        android:layout_height="@dimen/qb_px_100"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:textSize="@dimen/qb_px_12"
+        android:textColor="@color/color_cccccc"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/dialNameTv"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_8"
+        android:text=""/>
+</LinearLayout>

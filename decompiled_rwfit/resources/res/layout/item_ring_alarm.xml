@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_item"
+    android:padding="@dimen/qb_px_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/qb_px_18"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnPrimary"
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07:15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/qb_px_12"
+        android:textColor="?attr/colorOnPrimary"
+        android:id="@+id/tv_am_pm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/qb_px_1"
+        android:layout_marginStart="@dimen/qb_px_6"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTime"
+        app:layout_constraintLeft_toRightOf="@+id/tvTime"/>
+    <TextView
+        android:textSize="@dimen/qb_px_12"
+        android:textColor="?attr/colorOnPrimary"
+        android:id="@+id/tv_alarm_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_6"
+        android:text="闹钟标签， 周日,周六,周五,周一"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTime"/>
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/alarmSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:thumbTint="@color/ring_bottomtext_sel"
+        app:trackTint="@drawable/ring_switch_track_color"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_text="@string/str_resource_update"/>
+    <com.example.test.ui.view.ActionItemView
+        android:id="@+id/ota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:is_show_icon="false"
+        app:item_name="@string/str_ota"/>
+    <com.example.test.ui.view.ActionItemView
+        android:id="@+id/uiRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:is_show_icon="false"
+        app:item_name="@string/str_ui_res_update"/>
+    <com.example.test.ui.view.ActionItemView
+        android:id="@+id/fontUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:is_show_icon="false"
+        app:item_name="@string/str_font_update"/>
+    <com.example.test.ui.view.ActionItemView
+        android:id="@+id/logoUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_10"
+        android:layout_marginStart="@dimen/qb_px_10"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        app:is_show_icon="false"
+        app:item_name="@string/str_logo_update"/>
+</LinearLayout>

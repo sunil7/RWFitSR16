@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="@dimen/qb_px_12"
+        android:textColor="@color/color_cccccc"
+        android:gravity="center"
+        android:id="@+id/headContentTv"
+        android:paddingLeft="@dimen/dp_4"
+        android:paddingTop="@dimen/qb_px_10"
+        android:paddingRight="10dp"
+        android:paddingBottom="@dimen/qb_px_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/headRefreshImageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_refresh_up"
+        android:layout_toLeftOf="@+id/headContentTv"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:layout_toStartOf="@+id/headContentTv"/>
+    <ProgressBar
+        android:id="@+id/headProgressBar"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:indeterminateDrawable="@drawable/progressbar_refresh"
+        android:layout_toLeftOf="@+id/headContentTv"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/headContentTv"/>
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.king.view.viewfinderview.ViewfinderView
+        android:id="@+id/viewfinderView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:vvLabelText="@string/str_qr_code_tips"
+        app:vvLaserDrawable="@drawable/scan_icon_scanline"
+        app:vvLaserStyle="image"
+        app:vvViewfinderStyle="classic"/>
+    <ImageView
+        android:id="@+id/ivFlashlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/camera_scan_flashlight_margin_top"
+        android:src="@drawable/camera_scan_flashlight_selector"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@null"/>
+    <TextView
+        android:textColor="@color/color_white"
+        android:gravity="center_vertical"
+        android:id="@+id/scanCodeWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/str_device_scan_qrcode"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:gravity="center"
+        android:id="@+id/back"
+        android:paddingTop="@dimen/qb_px_14"
+        android:paddingBottom="@dimen/qb_px_14"
+        android:layout_width="@dimen/qb_px_48"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_tb_back"
+        android:paddingStart="@dimen/qb_px_16"
+        android:paddingEnd="@dimen/qb_px_16"/>
+</RelativeLayout>

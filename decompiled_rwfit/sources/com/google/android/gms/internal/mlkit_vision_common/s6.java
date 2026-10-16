@@ -1,0 +1,9 @@
+package com.google.android.gms.internal.mlkit_vision_common;
+
+/* loaded from: classes.dex */
+public abstract class s6 {
+    public static final float[] a(float[] matrix) {
+        kotlin.jvm.internal.e.f(matrix, "matrix");
+        return (float[]) matrix.clone();
+    }
+}

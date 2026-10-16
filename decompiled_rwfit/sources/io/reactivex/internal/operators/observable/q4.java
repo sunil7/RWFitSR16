@@ -1,0 +1,44 @@
+package io.reactivex.internal.operators.observable;
+
+/* loaded from: classes2.dex */
+public final class q4 extends ah.a {
+
+    /* renamed from: b, reason: collision with root package name */
+    public final ObservableWindowBoundarySupplier$WindowBoundaryMainObserver f14845b;
+
+    /* renamed from: c, reason: collision with root package name */
+    public boolean f14846c;
+
+    public q4(ObservableWindowBoundarySupplier$WindowBoundaryMainObserver observableWindowBoundarySupplier$WindowBoundaryMainObserver) {
+        this.f14845b = observableWindowBoundarySupplier$WindowBoundaryMainObserver;
+    }
+
+    @Override // rg.s
+    public final void onComplete() {
+        if (this.f14846c) {
+            return;
+        }
+        this.f14846c = true;
+        this.f14845b.innerComplete();
+    }
+
+    @Override // rg.s
+    public final void onError(Throwable th2) {
+        if (this.f14846c) {
+            com.google.android.gms.internal.mlkit_vision_barcode.a1.b(th2);
+        } else {
+            this.f14846c = true;
+            this.f14845b.innerError(th2);
+        }
+    }
+
+    @Override // rg.s
+    public final void onNext(Object obj) {
+        if (this.f14846c) {
+            return;
+        }
+        this.f14846c = true;
+        dispose();
+        this.f14845b.innerNext(this);
+    }
+}

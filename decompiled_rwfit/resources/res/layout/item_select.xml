@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/qb_px_14"
+    android:textColor="?attr/colorOnPrimary"
+    android:gravity="center"
+    android:id="@+id/selectTv"
+    android:padding="@dimen/qb_px_20"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="相册"/>

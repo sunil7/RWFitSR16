@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_44">
+    <ImageView
+        android:gravity="center"
+        android:id="@+id/back"
+        android:paddingTop="@dimen/qb_px_14"
+        android:paddingBottom="@dimen/qb_px_14"
+        android:layout_width="@dimen/qb_px_48"
+        android:layout_height="match_parent"
+        android:src="@drawable/svg_ic_tb_back"
+        android:paddingStart="@dimen/qb_px_16"
+        android:paddingEnd="@dimen/qb_px_16"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <ImageView
+        android:id="@+id/icRight"
+        android:visibility="gone"
+        android:layout_width="@dimen/qb_px_44"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_save"
+        android:paddingStart="@dimen/qb_px_13"
+        android:paddingEnd="@dimen/qb_px_13"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/qb_px_18"
+        android:textColor="?attr/colorOnPrimary"
+        android:gravity="center_vertical"
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TITLE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/back"
+        app:layout_constraintRight_toLeftOf="@+id/icRight"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

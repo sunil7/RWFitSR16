@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content"
+    android:background="@drawable/bg_select_circle"
+    android:padding="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="6dp">
+    <com.example.test.ui.view.PointView
+        android:id="@+id/color_view"
+        android:layout_width="@dimen/qb_px_32"
+        android:layout_height="@dimen/qb_px_32"
+        app:color_point="@color/color_925ed2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

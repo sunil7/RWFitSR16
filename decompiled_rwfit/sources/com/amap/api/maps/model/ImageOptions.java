@@ -1,0 +1,46 @@
+package com.amap.api.maps.model;
+
+import com.autonavi.base.amap.mapcore.jbinding.JBindingInclude;
+
+@JBindingInclude
+/* loaded from: classes.dex */
+public class ImageOptions {
+
+    @JBindingInclude
+    public int color;
+
+    @JBindingInclude
+    public String content;
+
+    @JBindingInclude
+    public int fontSize;
+
+    @JBindingInclude
+    public float radius;
+
+    @JBindingInclude
+    public double[] rgba;
+
+    @JBindingInclude
+    public int type;
+
+    public enum ShapeType {
+        DEFAULT(0),
+        CIRCLE(1),
+        TEXT(2);
+
+        private int index;
+
+        ShapeType(int i3) {
+            this.index = i3;
+        }
+
+        public int value() {
+            return this.index;
+        }
+    }
+
+    @JBindingInclude
+    public ImageOptions() {
+    }
+}

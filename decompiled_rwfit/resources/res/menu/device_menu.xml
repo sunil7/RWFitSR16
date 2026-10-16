@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@mipmap/ic_add_device"
+        android:id="@+id/device_add"
+        android:title="up"
+        android:checkable="true"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:icon="@mipmap/ic_scan_device"
+        android:id="@+id/device_scan"
+        android:title="up"
+        android:checkable="true"
+        app:showAsAction="ifRoom"/>
+</menu>

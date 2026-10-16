@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_dpi">300dp</string>
+    <string name="str_avg_press">Average Stress</string>
+    <string name="str_current_press">Current Stress</string>
+    <string name="str_max_press">Maximum Stress</string>
+    <string name="str_min_press">Minimum Stress</string>
+    <string name="test">300dp</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_text="@string/ring_str_contact_support"/>
+    <androidx.core.widget.NestedScrollView
+        android:padding="@dimen/qb_px_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="?attr/colorOnPrimary"
+                android:id="@+id/deviceModelEt"
+                android:padding="@dimen/qb_px_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_10"
+                android:text="Please send your question to the following email address. Our customer service staff will get in touch with you and solve the problem.   \10\10\10 BrenRing@163.com"/>
+            <Button
+                android:textColor="@android:color/white"
+                android:id="@+id/commit"
+                android:background="@drawable/bg_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qb_px_60"
+                android:text="BrenRing@163.com"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

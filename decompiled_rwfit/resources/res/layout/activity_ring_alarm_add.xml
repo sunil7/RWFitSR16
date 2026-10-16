@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_right="@drawable/svg_confirmdialog_ok"
+        app:title_text="@string/str_alarm_add"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/qb_px_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/decor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_200"
+            android:layout_marginTop="@dimen/qb_px_10"/>
+        <com.example.test.ui.view.ActionItemView
+            android:id="@+id/avRepeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qb_px_10"
+            app:is_show_icon="false"
+            app:item_hint="@string/str_no_repeat"
+            app:item_name="@string/str_repeat"
+            app:item_type="action_info"/>
+        <com.example.test.ui.view.ActionItemView
+            android:id="@+id/avTag"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qb_px_10"
+            app:is_show_icon="false"
+            app:item_hint="@string/str_alarm"
+            app:item_name="@string/str_tag"
+            app:item_type="action_info"/>
+    </LinearLayout>
+</LinearLayout>

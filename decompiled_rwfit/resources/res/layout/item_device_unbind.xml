@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/qb_px_16"
+    android:textColor="@android:color/holo_red_light"
+    android:id="@+id/btn_action"
+    android:background="@drawable/bg_item"
+    android:paddingTop="@dimen/qb_px_15"
+    android:paddingBottom="@dimen/qb_px_15"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/str_unbind"/>

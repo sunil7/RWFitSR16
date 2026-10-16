@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/family_content"
+    android:background="@mipmap/homepage_family_bg"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_250">
+    <TextView
+        android:textSize="@dimen/qb_px_18"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_12"
+        android:text="@string/ring_item_family_affection"
+        android:layout_marginStart="@dimen/qb_px_13"/>
+    <TextView
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_3"
+        android:text="2025年8月14日"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginStart="@dimen/qb_px_13"/>
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="@dimen/qb_px_20"
+        android:layout_height="@dimen/qb_px_20"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:src="@mipmap/ic_homepage_more"
+        android:layout_marginEnd="@dimen/qb_px_10"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

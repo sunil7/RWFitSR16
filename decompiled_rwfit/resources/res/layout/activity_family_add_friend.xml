@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.test.ui.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_right="@drawable/svg_camera_scan"
+        app:title_text="@string/str_family_friend_add_title"
+        app:title_text_color="?attr/colorOnPrimary"/>
+    <EditText
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_828282"
+        android:id="@+id/friendSearchText"
+        android:background="@drawable/family_add_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_50"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:hint="@string/ring_item_family_search_input"
+        android:maxLength="8"
+        android:numeric="integer"
+        android:paddingStart="@dimen/qb_px_12"
+        android:layout_marginStart="@dimen/qb_px_20"
+        android:layout_marginEnd="@dimen/qb_px_20"/>
+    <Button
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:id="@+id/friendSearchButton"
+        android:background="@mipmap/family_add_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_50"
+        android:layout_marginTop="@dimen/qb_px_40"
+        android:text="@string/ring_item_family_search"
+        android:layout_marginStart="@dimen/qb_px_20"
+        android:layout_marginEnd="@dimen/qb_px_20"/>
+</LinearLayout>

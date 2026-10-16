@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <RelativeLayout
+        android:background="@drawable/bg_item_theme"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
+        <ImageView
+            android:id="@+id/iv_item_healthtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ring_detail_hr_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"/>
+        <TextView
+            android:textSize="18sp"
+            android:textColor="?attr/colorOnPrimary"
+            android:id="@+id/tv_item_healthvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="93 bpm"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/iv_item_healthtype"/>
+        <TextView
+            android:textSize="18sp"
+            android:textColor="?attr/colorOnPrimary"
+            android:id="@+id/tv_item_healthtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</RelativeLayout>
